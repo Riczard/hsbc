@@ -12,21 +12,25 @@ public class BracketChecker {
     }
 
     public boolean areBracketsMatchedAndNestedCorrectly() {
-        Queue<Character> bracketQueue = new LinkedList<>();
+        Queue<String> bracketQueue = new LinkedList<>();
         for(int i = 0; i < bracket.length(); i++) {
             Character bracketChar = bracket.charAt(i);
             String bracketString = String.valueOf(bracketChar);
             if(isOpenBracket(bracketChar)) {
-                bracketQueue.add(bracketChar);
+                bracketQueue.add(String.valueOf(bracketChar));
             }else {
-                String closeBracket = String.valueOf(bracketQueue.poll());
-                if(closeBracket.equals("[") && !bracketString.equals("]")){
+                String openBracket = bracketQueue.poll();
+
+                if(openBracket == null) {
                     return false;
                 }
-                else if(closeBracket.equals("(") && !bracketString.equals(")")){
+                else if(openBracket.equals("[") && !bracketString.equals("]")){
                     return false;
                 }
-                else if(closeBracket.equals("{") && !bracketString.equals("}")){
+                else if(openBracket.equals("(") && !bracketString.equals(")")){
+                    return false;
+                }
+                else if(openBracket.equals("{") && !bracketString.equals("}")){
                     return false;
                 }
             }
