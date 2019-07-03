@@ -20,13 +20,13 @@ public class BracketChecker {
                 bracketQueue.add(bracketChar);
             }else {
                 String closeBracket = String.valueOf(bracketQueue.poll());
-                if(closeBracket.equals("]") && !bracketString.equals("[")){
+                if(closeBracket.equals("[") && !bracketString.equals("]")){
                     return false;
                 }
-                else if(closeBracket.equals(")") && !bracketString.equals("(")){
+                else if(closeBracket.equals("(") && !bracketString.equals(")")){
                     return false;
                 }
-                else if(closeBracket.equals("{") && !bracketString.equals("{")){
+                else if(closeBracket.equals("{") && !bracketString.equals("}")){
                     return false;
                 }
             }
