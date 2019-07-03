@@ -17,6 +17,7 @@ public class Scrabble {
         int score = 0;
         for(int i = 0; i < word.length(); i++){
             char letter = word.charAt(i);
+
             score += lettersValueMap.get(String.valueOf(letter));
         }
         return score;
